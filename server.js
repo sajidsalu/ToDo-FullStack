@@ -16,6 +16,10 @@ const Todo = mongoose.model('Todo',new mongoose.Schema({
 
 //Routes
 
+app.get('/', (req, res) => {
+    res.send('Server is alive');
+});
+
 app.get('/api/todos', async (req, res) => {
     const todos = await Todo.find();
     const formattedTodos = todos.map(todo => ({
